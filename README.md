@@ -12,3 +12,7 @@ Interactive map of national approaches to implementing the EU Hydrogen and Decar
 The application is a single self-contained `index.html` with no build step or backend. To update it, replace `index.html` and push to `main`; GitHub Pages republishes automatically.
 
 Useful links: `#showcase` opens presentation mode, `#framework` opens the legal-relationship view, `#acer` opens the ACER view.
+
+## Versions
+- `index.html` — V7.1 (UX/UI redesign: lenses, searchable country selector, mobile bottom-sheet profiles, two-country comparison, briefing, glossary). Same data as V7.
+- `archive/v7/index.html` — previous V7, kept for recovery (also tagged `v7` in git).
