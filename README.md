@@ -15,4 +15,4 @@ Useful links: `#compare` and `#brief` open those views, `#showcase` opens presen
 
 ## Versions
 - `index.html` — V7.1 (UX/UI redesign: lenses, searchable country selector, mobile bottom-sheet profiles, two-country comparison, briefing, glossary). Same data as V7.
-- `archive/v7/index.html` — previous V7, kept for recovery (also tagged `v7` in git).
+- `archive/v7/index.html` — previous V7, kept for recovery (also recoverable from git commit `5950949`).
