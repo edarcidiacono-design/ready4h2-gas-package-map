@@ -14,5 +14,6 @@ The application is a single self-contained `index.html` with no build step or ba
 Useful links: `#compare` and `#brief` open those views, `#showcase` opens presentation mode, `#framework` opens the legal-relationship view, `#acer` opens the ACER view.
 
 ## Versions
-- `index.html` — V7.1 (UX/UI redesign: lenses, searchable country selector, mobile bottom-sheet profiles, two-country comparison, briefing, glossary). Same data as V7.
+- `index.html` — V7.2: one set of themes with a transmission (TSO) / distribution (DSO) switch; distribution-level transposition data for all 27 Member States from official national sources (checked 19 October 2026).
+- `archive/v7.1/index.html` — V7.1 (UX/UI redesign on V7 data).
 - `archive/v7/index.html` — previous V7, kept for recovery (also recoverable from git commit `5950949`).
