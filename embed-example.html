@@ -1,18 +1,38 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Embed test – Ready4H2 Gas Package Map</title>
+<title>Embed example – Ready4H2 Gas Package Map</title>
 <style>body{margin:0;font-family:system-ui,sans-serif;background:#f4f4f4}header{background:#004f9f;color:#fff;padding:24px 16px}main{max-width:1280px;margin:0 auto;padding:16px}
-iframe{display:block;width:100%;border:0;height:900px}</style></head>
-<body><header><h1 style="margin:0">ready4h2.com – Gas Package Map (host page)</h1></header>
+#r4h2-map{display:block;width:100%;border:0;height:900px}
+.r4h2-consent{padding:32px 20px;background:#fff;border:1px solid #ccd;border-radius:10px;text-align:center}
+.r4h2-consent button{font:inherit;font-weight:600;padding:12px 20px;border-radius:8px;border:0;background:#22405e;color:#fff;cursor:pointer}</style></head>
+<body><header><h1 style="margin:0">ready4h2.com – Gas Package Map (host page example)</h1></header>
 <main><p>Text of the host page above the map.</p>
-<!-- Ready4H2 Gas Package Map: iframe + auto-height -->
-<iframe id="r4h2-map" src="index.html?embed=1" title="Ready4H2 Gas Package Map" loading="lazy"></iframe>
+
+<!-- ===== Ready4H2 Gas Package Map: copy from here ===== -->
+<!-- Option 1 (direct): the map loads immediately. Option 2 (click-to-load): keep the consent box below; the map loads only after the click. -->
+<div id="r4h2-map-box">
+  <div class="r4h2-consent">
+    <p>The Gas Package Map is provided by Ready4H2 and hosted on GitHub Pages (GitHub, Inc.). Loading it transmits your IP address to GitHub. No cookies or tracking are used.</p>
+    <button type="button" id="r4h2-load">Load the map</button>
+  </div>
+</div>
 <script>
-window.addEventListener("message", function (e) {
-  var f = document.getElementById("r4h2-map");
-  if (!f || e.source !== f.contentWindow || !e.data) return;
-  if (e.data.type === "r4h2-map:height") f.style.height = e.data.height + "px";
-  if (e.data.type === "r4h2-map:scrollTop") f.scrollIntoView({ behavior: "smooth", block: "start" });
-});
+(function () {
+  var SRC = "https://edarcidiacono-design.github.io/ready4h2-gas-package-map/?embed=1";
+  var box = document.getElementById("r4h2-map-box");
+  function load() {
+    box.innerHTML = '<iframe id="r4h2-map" src="' + SRC + '" title="Ready4H2 Gas Package Map"></iframe>';
+  }
+  document.getElementById("r4h2-load").addEventListener("click", load);
+  // For option 1 (direct loading), replace the line above with: load();
+  window.addEventListener("message", function (e) {
+    var f = document.getElementById("r4h2-map");
+    if (!f || e.source !== f.contentWindow || !e.data) return;
+    if (e.data.type === "r4h2-map:height") f.style.height = e.data.height + "px";
+    if (e.data.type === "r4h2-map:scrollTop") f.scrollIntoView({ behavior: "smooth", block: "start" });
+  });
+})();
 </script>
+<!-- ===== to here ===== -->
+
 <p>Text of the host page below the map.</p></main></body></html>

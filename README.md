@@ -20,6 +20,7 @@ Useful links: `#compare` and `#brief` open those views, `#framework` opens the l
 
 ## Embedding (e.g. on ready4h2.com)
 - Add `?embed=1` to the page URL inside an iframe: the page hides its own brand bar, uses the light theme (`&theme=auto` keeps the visitor's light/dark setting), removes sticky elements and reports its height to the parent window with `postMessage({type: "r4h2-map:height", height})`. On a view change it also sends `{type: "r4h2-map:scrollTop"}`.
-- `embed-example.html` shows the iframe plus the few lines of parent-page script that resize it.
+- `embed-example.html` shows how to embed the live GitHub Pages version (updates appear automatically), with an optional click-to-load consent box, plus the few lines of parent-page script that resize the iframe.
+- In embed mode the page writes nothing to browser storage and sets no cookies.
 - Language can be preset with `&lang=de` (en, de, fr, es, it, nl, cs, sk).
 - Fonts (IBM Plex Sans, Bricolage Grotesque; SIL Open Font License 1.1) are embedded in the file: the page makes no external requests.

@@ -1076,7 +1076,7 @@ function init() {
   const nj = $("#nojs"); if (nj) nj.remove();
   document.documentElement.classList.add("js");
   const qs = new URLSearchParams(location.search).get("lang");
-  let stored = null; try { stored = localStorage.getItem("r4h2-lang"); } catch (e) {}
+  let stored = null; if (!EMBED) { try { stored = localStorage.getItem("r4h2-lang"); } catch (e) {} }
   S.lang = LANGS.includes(qs) ? qs : LANGS.includes(stored) ? stored : "en";
   buildMap(); initCombo();
   const h = location.hash;
@@ -1103,7 +1103,7 @@ function init() {
   });
   $("#indSelect").addEventListener("change", ev => setInd(ev.target.value));
   $("#allSelect").addEventListener("change", ev => setInd(ev.target.value));
-  $("#langSelect").addEventListener("change", ev => { S.lang = ev.target.value; try { localStorage.setItem("r4h2-lang", S.lang); } catch (e) {} applyLanguage(); });
+  $("#langSelect").addEventListener("change", ev => { S.lang = ev.target.value; if (!EMBED) { try { localStorage.setItem("r4h2-lang", S.lang); } catch (e) {} } applyLanguage(); });
   $("#cA").addEventListener("change", ev => { S.A = ev.target.value; renderCompare(); });
   $("#cB").addEventListener("change", ev => { S.B = ev.target.value; renderCompare(); });
   $("#cSwap").addEventListener("click", () => { [S.A, S.B] = [S.B, S.A]; renderCompare(); });
