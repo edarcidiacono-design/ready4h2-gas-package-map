@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Embed test – Ready4H2 Gas Package Map</title>
+<style>body{margin:0;font-family:system-ui,sans-serif;background:#f4f4f4}header{background:#004f9f;color:#fff;padding:24px 16px}main{max-width:1280px;margin:0 auto;padding:16px}
+iframe{display:block;width:100%;border:0;height:900px}</style></head>
+<body><header><h1 style="margin:0">ready4h2.com – Gas Package Map (host page)</h1></header>
+<main><p>Text of the host page above the map.</p>
+<!-- Ready4H2 Gas Package Map: iframe + auto-height -->
+<iframe id="r4h2-map" src="index.html?embed=1" title="Ready4H2 Gas Package Map" loading="lazy"></iframe>
+<script>
+window.addEventListener("message", function (e) {
+  var f = document.getElementById("r4h2-map");
+  if (!f || e.source !== f.contentWindow || !e.data) return;
+  if (e.data.type === "r4h2-map:height") f.style.height = e.data.height + "px";
+  if (e.data.type === "r4h2-map:scrollTop") f.scrollIntoView({ behavior: "smooth", block: "start" });
+});
+</script>
+<p>Text of the host page below the map.</p></main></body></html>
